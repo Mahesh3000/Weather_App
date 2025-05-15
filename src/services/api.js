@@ -17,7 +17,7 @@ export const fetchCurrentWeather = async ({
       params = { ...params, city };
     }
 
-    const response = await axios.get(`${API_URL}/weather`, { params });
+    const response = await axios.get(`${API_URL}/api/weather`, { params });
     return response.data;
   } catch (error) {
     console.error("Error fetching current weather:", error);
@@ -35,7 +35,7 @@ export const fetchForecast = async ({ coords, city, units = "metric" }) => {
       params = { ...params, city };
     }
 
-    const response = await axios.get(`${API_URL}/forecast`, { params });
+    const response = await axios.get(`${API_URL}/api/forecast`, { params });
     return response.data;
   } catch (error) {
     console.error("Error fetching forecast:", error);
@@ -45,7 +45,7 @@ export const fetchForecast = async ({ coords, city, units = "metric" }) => {
 
 export const searchLocations = async (query) => {
   try {
-    const response = await axios.get(`${API_URL}/locations`, {
+    const response = await axios.get(`${API_URL}/api/locations`, {
       params: { query },
     });
     return response.data;
