@@ -1,7 +1,8 @@
 import axios from "axios";
 import { Coordinates, Units } from "../types";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://44.206.196.76:3000/api";
+const API_URL =
+  import.meta.env.VITE_API_URL || "https://weatherapi.maheshsivangi.tech";
 
 interface FetchParams {
   coords?: Coordinates | null;
