@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const API_URL =
-  import.meta.env.VITE_API_URL || "https://weatherapi.maheshsivangi.tech";
+  import.meta.env.VITE_API_URL ||
+  "https://weatherapi.maheshsivangi.tech" ||
+  "http://localhost:3000";
 
 export const fetchCurrentWeather = async ({
   coords,

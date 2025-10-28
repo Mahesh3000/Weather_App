@@ -1,12 +1,12 @@
 import React from 'react';
-import { 
-  Sun, 
-  Cloud, 
-  CloudRain, 
-  CloudSnow, 
-  CloudFog, 
-  CloudLightning, 
-  Cloudy, 
+import {
+  Sun,
+  Cloud,
+  CloudRain,
+  CloudSnow,
+  CloudFog,
+  CloudLightning,
+  Cloudy,
   CloudDrizzle
 } from 'lucide-react';
 import { Units } from '../types';
@@ -42,9 +42,13 @@ export const getWeatherIcon = (condition: string) => {
 /**
  * Format temperature based on units
  */
+
 export const formatTemperature = (temp: number, units: Units): string => {
-  return `${Math.round(temp)}°${units === 'metric' ? 'C' : 'F'}`;
+  let roundedTemp = units === 'metric' ? temp : (temp * 9) / 5 + 32;
+  roundedTemp = Math.round(roundedTemp);
+  return `${roundedTemp}°${units === 'metric' ? 'C' : 'F'}`;
 };
+
 
 /**
  * Get background style based on weather condition and time of day
@@ -53,7 +57,7 @@ export const getWeatherBackground = (condition: string, isNight: boolean) => {
   let style = {
     background: 'linear-gradient(to bottom right, #3498db, #2980b9)'
   };
-  
+
   if (isNight) {
     // Night backgrounds
     switch (condition) {
@@ -107,6 +111,6 @@ export const getWeatherBackground = (condition: string, isNight: boolean) => {
         style.background = 'linear-gradient(to bottom right, #2196f3, #03a9f4)';
     }
   }
-  
+
   return style;
 };
